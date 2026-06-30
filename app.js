@@ -5,6 +5,9 @@ const mongoose= require("mongoose");
 const path= require("path");
 const Listing= require("./models/listing.js");
 const methodOverride= require("method-override");
+const ejsMate= require("ejs-mate");
+app.engine('ejs', ejsMate);
+app.use(express.static(path.join(__dirname, "/public")));
 
 
 main().then(() => {
