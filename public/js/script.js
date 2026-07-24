@@ -1,3 +1,5 @@
+//Form validation (new.ejs and edit.ejs)(when we add new listing or edit listing)
+//Add Custom bootstrap validation styles 
 (() => {
   'use strict'
 

@@ -33,11 +33,14 @@ const listingSchema= new Schema({
 
 });
 
+//Post mongoose middleware
+//When we are deleting the listing, the reviews must also be deleted from the reviews array inside that listing
+//ObjectIds of reviews are stored in the reviews array
 listingSchema.post("findOneAndDelete", async (listing) => {
     if(listing){
         await Review.deleteMany({_id: {$in : listing.reviews}});
     }
-})
+});
 
 const Listing= mongoose.model("Listing",listingSchema);
 module.exports= Listing;
